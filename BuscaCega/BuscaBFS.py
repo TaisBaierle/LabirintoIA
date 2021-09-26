@@ -52,6 +52,8 @@ def main() :
     for i in labirinto :
         print(i)
 
+    
+    #entrada de dados
     print("Entre com a posicao inicial :")
     inicio = tuple(map(int, input().split()))
 
