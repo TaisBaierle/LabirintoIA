@@ -99,7 +99,8 @@ def astar(labirinto, inicio, fim):
             filho.h = ((filho.posicao[0] - nodo_final.posicao[0]) ** 2) + ((filho.posicao[1] - nodo_final.posicao[1]) ** 2)
             #como heuristica aplicada, foi utilizado a distancia euclidiana: 
             # A Distância Euclidiana é definida como a soma da raiz quadrada da diferença entre x e y em suas respectivas dimensões.
-            filho.f = filho.g + filho.h
+            #Sendo uma linha reta até o destino
+            filho.f = filho.g + filho.h # f(n) = g(n) + h(n)
 
             for i in range(len(lista_aberta)) :
                 if filho == lista_aberta[i] and filho.g > lista_aberta[i].g:
