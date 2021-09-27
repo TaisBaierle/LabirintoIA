@@ -53,7 +53,7 @@ def main() :
         print(i)
 
     
-    #entrada de dados
+ 
     print("Entre com a posicao inicial :")
     inicio = tuple(map(int, input().split()))
 

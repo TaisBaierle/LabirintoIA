@@ -94,8 +94,11 @@ def astar(labirinto, inicio, fim):
                 if filho == filho_fechado:
                     continue
 
-            filho.g = nodo_atual.g + 1
+            filho.g = nodo_atual.g + 1 #o nodo filho como g é a distancia do nodo até seu pai
+                                      #Simplismente é feito a soma de um num acumulado de g
             filho.h = ((filho.posicao[0] - nodo_final.posicao[0]) ** 2) + ((filho.posicao[1] - nodo_final.posicao[1]) ** 2)
+            #como heuristica aplicada, foi utilizado a distancia euclidiana: 
+            # A Distância Euclidiana é definida como a soma da raiz quadrada da diferença entre x e y em suas respectivas dimensões.
             filho.f = filho.g + filho.h
 
             for i in range(len(lista_aberta)) :
