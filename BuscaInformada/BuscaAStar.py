@@ -97,11 +97,8 @@ def astar(labirinto, inicio, fim):
             filho.g = nodo_atual.g + 1 #o nodo filho como g é a distancia do nodo até seu pai
                                       #Simplismente é feito a soma de um num acumulado de g
             filho.h = ((filho.posicao[0] - nodo_final.posicao[0]) ** 2) + ((filho.posicao[1] - nodo_final.posicao[1]) ** 2)
-            #como heuristica aplicada, foi utilizado a distancia euclidiana: 
-            # A Distância Euclidiana é definida como a soma da raiz quadrada da diferença entre x e y em suas respectivas dimensões.
-            #Sendo uma linha reta até o destino
+            #como heuristica aplicada, foi utilizado o teorema de pitágoras, para calcular uma estimativa do até o final
             filho.f = filho.g + filho.h # f(n) = g(n) + h(n)
-
             for i in range(len(lista_aberta)) :
                 if filho == lista_aberta[i] and filho.g > lista_aberta[i].g:
                     continue
