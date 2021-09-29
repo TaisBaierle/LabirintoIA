@@ -96,8 +96,8 @@ def astar(labirinto, inicio, fim):
                 if filho == filho_fechado:
                     continue
 
-            filho.g = nodo_atual.g + 1 #o nodo filho como g é a distancia do nodo até seu pai
-                                      #Simplismente é feito a soma de um num acumulado de g
+            filho.g = nodo_atual.g + 1 
+            #Simplismente é feito a soma de um num acumulado de g
             filho.h = math.sqrt(((filho.posicao[0] - nodo_final.posicao[0]) ** 2) + ((filho.posicao[1] - nodo_final.posicao[1]) ** 2))
             #como heuristica aplicada, foi utilizada a distancia euclidiana: 
             # A Distância Euclidiana é definida como a soma da raiz quadrada da diferença entre x e y em suas respectivas dimensões.
@@ -106,12 +106,12 @@ def astar(labirinto, inicio, fim):
             for i in range(len(lista_aberta)) :
                 #se o filho estiver na lista aberta e o g do filho for maior
                 #joga o loop de novo
-                if filho == lista_aberta[i] and filho.g > lista_aberta[i].g:
+                if filho == lista_aberta[i] and filho.f > lista_aberta[i].f:
                     continue
                 #Se já estiver na lista aberta, verifique se esse caminho para aquele quadrado é melhor, usando o custo G como medida. 
                 # Um custo G mais baixo significa que este é um caminho melhor. 
-                if filho == lista_aberta[i] and filho.g < lista_aberta[i].g:
-                    lista_aberta[i].g = filho.g 
+                if filho == lista_aberta[i] and filho.f < lista_aberta[i].f:
+                    lista_aberta[i].f = filho.f 
                     lista_aberta[i].h = filho.h 
                     lista_aberta[i].pai = nodo_atual #adiciona o nodo atual como pai do nodo da lista aberta
                     continue
